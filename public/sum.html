@@ -19,6 +19,7 @@
         const showContent = document.querySelector('#showContent');
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
+            showContent.innerHTML = '';
             const queryVal = form.elements[0].value;
             const res = await fetch(`http://localhost:3000/getData?number=${queryVal}`);
             console.log(res);
