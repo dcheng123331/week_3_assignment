@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sum to getData API</title>
+    <title>Sum</title>
 </head>
 <body>
     <form id="form">
@@ -18,18 +18,16 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("showContent").innerHTML =
-                this.responseText;
+                document.getElementById("showContent").innerHTML = this.responseText;
                 }
             };
             xhttp.open("GET", `http://localhost:3000/getData?number=${query}`, true);
             xhttp.send();
         }  
-        form.addEventListener('submit', async function(e) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            showContent.innerHTML = '';
             const queryVal = form.elements[0].value;
-            loadDoc(queryVal)
+            loadDoc(queryVal);
         });  
         
     </script>
