@@ -25,7 +25,7 @@ app.get('/getData', (req, res) => {
         if (sum === 0) {
             res.send('Wrong Parameter');
         } else {
-            res.send(`<h1>${sum}</h1>`)
+            res.send(`${sum}`)
         }
     }
 });
@@ -35,14 +35,14 @@ app.get('/myName', (req, res) => {
     if(name) {
         res.render('myName', {name});
     } else {
-        res.redirect('/trackName')
+        res.render('user')
     }
 
 })
 
-app.get('/trackName', (req, res) => {
-    res.render('user');
-});
+// app.get('/trackName', (req, res) => {
+//     res.render('user');
+// });
 
 app.post('/trackName', (req, res) => {
     res.cookie('name', req.body.name)
